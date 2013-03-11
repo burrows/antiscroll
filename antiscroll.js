@@ -29,6 +29,8 @@
    */
 
   function Antiscroll (el, opts) {
+    var size = scrollbarSize();
+
     this.el = $(el);
     this.options = opts || {};
 
@@ -38,14 +40,24 @@
     this.padding = undefined == this.options.padding ? 2 : this.options.padding;
 
     this.inner = this.el.find('.antiscroll-inner');
-    this.inner.css({
-        'width':  '+=' + (this.y ? scrollbarSize() : 0)
-      , 'height': '+=' + (this.x ? scrollbarSize() : 0)
-    });
 
     var cssMap = {};
-    if (this.x) cssMap.width = '+=' + scrollbarSize();
-    if (this.y) cssMap.height = '+=' + scrollbarSize();
+    if (this.x) {
+      if (this.options.adjustRight) {
+        cssMap.right = '-=' + scrollbarSize();
+      }
+      else {
+        cssMap.width = '+=' + scrollbarSize();
+      }
+    }
+    if (this.y) {
+      if (this.options.adjustBottom) {
+        cssMap.bottom = '-=' + scrollbarSize();
+      }
+      else {
+        cssMap.height = '+=' + scrollbarSize();
+      }
+    }
     this.inner.css(cssMap);
 
     this.refresh();
