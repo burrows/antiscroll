@@ -4,6 +4,11 @@
   overflow: hidden;
 }
 
+.antiscroll-wrap ::-webkit-scrollbar {
+  width:  0px;
+  height: 0px;
+}
+
 .antiscroll-scrollbar {
   background: gray;
   background: rgba(0, 0, 0, 0.5);
