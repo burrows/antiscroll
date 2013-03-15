@@ -44,7 +44,12 @@
   overflow: scroll;
 }
 
-.antiscroll-inner::-webkit-scrollbar, .antiscroll-inner::scrollbar {
+.antiscroll-inner::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.antiscroll-inner::scrollbar {
   width: 0;
   height: 0;
 }
