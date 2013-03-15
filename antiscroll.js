@@ -29,8 +29,6 @@
    */
 
   function Antiscroll (el, opts) {
-    var size = scrollbarSize();
-
     this.el = $(el);
     this.options = opts || {};
 
